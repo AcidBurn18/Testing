@@ -13,9 +13,9 @@ if __name__ == '__main__':
 	main()
 '''
 import streamlit as st
-import sklearn
 import pandas as pd
 import numpy as np
+import sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
@@ -48,7 +48,15 @@ def user_input():
 
 def main():
 
-  df=pd.read_csv('weatherHistory.csv',parse_dates=['Formatted Date'])
+  st.title("Upload File")
+  csv_file=st.file_uploader("Upload",type=['csv','xslx'])
+  if (st.button("Process")):
+    if csv_file is not None:
+      file_details = {"Filename":csv_file.name,"FileType":csv_file.type,"FileSize":csv_file.size}
+      st.write(file_details)
+    else:
+      st.write("Error")
+  df=pd.read_csv(csv_file,parse_dates=['Formatted Date'])
   df['Formatted Date'] = pd.to_datetime(df['Formatted Date'], utc=True)
   df = df.set_index('Formatted Date')
 
