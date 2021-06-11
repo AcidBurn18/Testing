@@ -71,8 +71,8 @@ def user_input1():
           'Visibility':visibility,
       
           'Pressure':pressure}
-     f=pd.DataFrame(data,index=[0])
-     return f
+    f=pd.DataFrame(data,index=[0])
+    return f
 
 
 def main():
