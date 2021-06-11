@@ -26,6 +26,7 @@ st.write("""
 Weather Prediciton""")
 
 st.sidebar.header("User Input")
+@st.cache
 def user_input():
   temperature=st.sidebar.slider('Temperature in Celcius',-10,49,20)
   app_temperature=st.sidebar.slider('Apparent Temperature (C)',-10,49,20)
@@ -45,7 +46,7 @@ def user_input():
         'Pressure':pressure}
   f=pd.DataFrame(data,index=[0])
   return f
-
+@st.cache
 def main():
   flag=0
   st.title("Upload File")
