@@ -13,6 +13,7 @@ if __name__ == '__main__':
 	main()
 '''
 import streamlit as st
+import sklearn
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
