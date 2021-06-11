@@ -121,7 +121,7 @@ def main():
     st.write(call)
     t=np.array(call.values)
     temp=[]
-    for i in range(8):
+    for i in range(5):
       temp.append(t[0][i])
     g=regression.predict([temp])
     if (int(g)>max(unique_summary)):
