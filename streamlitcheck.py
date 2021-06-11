@@ -33,7 +33,7 @@ def user_input():
   wind_speed=st.sidebar.slider('Wind Speed in Km/h',5,80,16)
   wind_bearing=st.sidebar.slider('Wind bearing',0,360,235)
   visibility=st.sidebar.slider('Visibility',0,30,15)
-  loud_cover=st.sidebar.slider('Loud Cover',0,0,0)
+  loud_cover=st.sidebar.slider('Loud Cover',0.0,0.1,0.0)
   pressure=st.sidebar.slider('Pressure(millibar)',998,1050,1001)
   data={'Temperature':temperature,
         'Apparent Temperature':app_temperature,
