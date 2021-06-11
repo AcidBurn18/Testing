@@ -33,7 +33,7 @@ def user_input():
   wind_speed=st.sidebar.slider('Wind Speed in Km/h',5,80,16)
   wind_bearing=st.sidebar.slider('Wind bearing',0,360,235)
   visibility=st.sidebar.slider('Visibility',0,30,15)
-  loud_cover=st.sidebar.slider('Loud Cover',0.0,0.1,0.0)
+  loud_cover=st.sidebar.slider('Loud Cover',0,0,0)
   pressure=st.sidebar.slider('Pressure(millibar)',998,1050,1001)
   data={'Temperature':temperature,
         'Apparent Temperature':app_temperature,
@@ -45,6 +45,26 @@ def user_input():
         'Pressure':pressure}
   f=pd.DataFrame(data,index=[0])
   return f
+def user_input1():
+    form=st.form(key='my_form')
+    temperature=st.number_input(label='Temperature')
+    humidity=st.number_input(label='Humidty')
+    wind_speed=st.number_input(label='wind')
+    visibility=st.number_input(label='visibility')
+    pressure=st.number_input(label='pressure')
+    submit=form.form_submit('Submit')
+    if submit:
+      data={'Temperature':temperature,
+          
+          'Humidty':humidity,
+          'Wind Speed':wind_speed,
+        
+          'Visibility':visibility,
+      
+          'Pressure':pressure}
+    f=pd.DataFrame(data,index=[0])
+    return f
+
 
 def main():
   flag=0
@@ -76,7 +96,7 @@ def main():
     summary1=pd.DataFrame(summary)
 
     col_y=df_monthly_mean[['Summary']]
-    col_x_=df_monthly_mean[['Temperature (C)', 'Apparent Temperature (C)', 'Humidity', 'Wind Speed (km/h)', 'Wind Bearing (degrees)', 'Visibility (km)', 'Loud Cover', 'Pressure (millibars)']]
+    col_x_=df_monthly_mean[['Temperature (C)',  'Humidity', 'Wind Speed (km/h)', 'Visibility (km)', 'Pressure (millibars)']]
 
     x_train,x_test,y_train,y_test=train_test_split(col_x_,col_y,test_size=0.20,random_state=True)
 
@@ -87,7 +107,7 @@ def main():
 
     prediction = pd.DataFrame({'P summary': [k for k in pred_y],'Actual summ':[j for j in y_test['Summary']]})
 
-    call=user_input()
+    call=user_input1()
     st.subheader('Input Data')
     st.write(call)
     t=np.array(call.values)
@@ -106,5 +126,4 @@ def main():
 if __name__== '__main__':
   main()
 
- 
  
