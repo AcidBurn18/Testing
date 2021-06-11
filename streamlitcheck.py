@@ -52,7 +52,7 @@ def user_input1():
     wind_speed=st.number_input(label='wind')
     visibility=st.number_input(label='visibility')
     pressure=st.number_input(label='pressure')
-    submit=form.form_submit('Submit')
+    submit=form.form_submit_button('Submit')
     if submit:
       data={'Temperature':temperature,
           
