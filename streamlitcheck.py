@@ -102,9 +102,10 @@ def main():
         out=weather_map[int(g)]
       st.subheader("Prediction")
       st.write(out)
-    if __name__== '__main__':
-      main()
 
   else:
     st.write("Error")
+if __name__== '__main__':
+  main()
+
  
