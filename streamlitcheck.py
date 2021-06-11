@@ -54,6 +54,7 @@ def user_input1():
     pressure=st.number_input(label='pressure')
     submit=form.form_submit_button('Submit')
     if submit:
+		
       data={'Temperature':temperature,
           
           'Humidty':humidity,
@@ -62,8 +63,8 @@ def user_input1():
           'Visibility':visibility,
       
           'Pressure':pressure}
-    f=pd.DataFrame(data,index=[0])
-    return f
+      f=pd.DataFrame(data,index=[0])
+      return f
 
 
 def main():
