@@ -1,7 +1,7 @@
 import streamlit as st
 st.write("Point Of View")
 def main():
-  form=st.form(key='my_from')
+  form=st.form(key='my_form')
   username=st.text_input(label='Username')
   submit=form.form_submit('Go')
   
